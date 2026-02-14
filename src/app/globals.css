@@ -1,0 +1,137 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.98 0.01 247);
+  --foreground: oklch(0.22 0.01 257);
+  --card: oklch(0.99 0.01 247);
+  --card-foreground: oklch(0.2 0.01 257);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.01 257);
+  --primary: oklch(0.58 0.23 306);
+  --primary-foreground: oklch(0.98 0.01 300);
+  --secondary: oklch(0.94 0.04 302);
+  --secondary-foreground: oklch(0.28 0.02 257);
+  --muted: oklch(0.95 0.01 247);
+  --muted-foreground: oklch(0.49 0.03 257);
+  --accent: #e7f1ff;
+  --accent-foreground: #1c2f4e;
+  --border: oklch(0.89 0.02 247);
+  --input: oklch(0.9 0.02 247);
+  --ring: oklch(0.64 0.19 305);
+  --success: #61a4fa;
+  --success-foreground: #0b2345;
+}
+
+.dark {
+  --background: oklch(0.16 0.02 260);
+  --foreground: oklch(0.95 0.01 256);
+  --card: oklch(0.2 0.02 260);
+  --card-foreground: oklch(0.95 0.01 256);
+  --popover: oklch(0.19 0.02 260);
+  --popover-foreground: oklch(0.95 0.01 256);
+  --primary: oklch(0.72 0.2 304);
+  --primary-foreground: oklch(0.2 0.03 290);
+  --secondary: oklch(0.25 0.02 260);
+  --secondary-foreground: oklch(0.95 0.01 256);
+  --muted: oklch(0.25 0.02 260);
+  --muted-foreground: oklch(0.73 0.03 255);
+  --accent: #1a2e52;
+  --accent-foreground: #d8e8ff;
+  --border: oklch(0.29 0.03 257);
+  --input: oklch(0.29 0.03 257);
+  --ring: oklch(0.74 0.2 304);
+  --success: #61a4fa;
+  --success-foreground: #081a33;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(circle at 15% -10%, color-mix(in oklab, var(--primary), transparent 82%) 0%, transparent 45%),
+      radial-gradient(circle at 85% 0%, color-mix(in oklab, var(--success), transparent 84%) 0%, transparent 35%);
+  }
+
+  main > section {
+    border-top: 1px solid color-mix(in oklab, var(--border), transparent 25%);
+    background-color: color-mix(in oklab, var(--background), var(--foreground) 1.6%);
+  }
+
+  main > section:nth-of-type(even) {
+    background-color: color-mix(in oklab, var(--background), var(--primary) 4.5%);
+  }
+
+  main > section:first-of-type {
+    border-top-color: color-mix(in oklab, var(--border), transparent 65%);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-balance;
+    font-family: var(--font-space-grotesk), sans-serif;
+  }
+
+  p {
+    @apply text-pretty;
+  }
+}
+
+@layer utilities {
+  .surface {
+    @apply border border-border/70 bg-card/70 backdrop-blur;
+  }
+
+  .section-padding {
+    @apply py-14 sm:py-20;
+  }
+
+  .grid-pattern {
+    background-image:
+      linear-gradient(to right, color-mix(in oklab, var(--foreground), transparent 94%) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, var(--foreground), transparent 94%) 1px, transparent 1px);
+    background-size: 2rem 2rem;
+  }
+}
