@@ -138,7 +138,8 @@ export default function HomePage() {
     >
       <section className="section-padding relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_10%_10%,rgba(242,181,68,0.18),transparent_40%),radial-gradient(circle_at_85%_0%,rgba(200,155,60,0.14),transparent_30%)]" />
-        <div className="mx-auto grid w-full max-w-none gap-10 px-4 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:px-10">
+        <div className="grid-pattern pointer-events-none absolute inset-0 opacity-40" />
+        <div className="relative z-10 mx-auto grid w-full max-w-none gap-10 px-4 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:px-10">
           <AnimateInView>
             <Badge className="border-[#3b3426]/80 bg-[#1a1712] text-[#e5c37a]">End-to-End IT Consultancy</Badge>
             <h1 className="mt-5 max-w-4xl text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
