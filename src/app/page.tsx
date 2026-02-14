@@ -3,9 +3,11 @@ import {
   Activity,
   ArrowRight,
   Blocks,
+  BriefcaseBusiness,
   ChartNoAxesCombined,
   Layers3,
   ShieldCheck,
+  UsersRound,
   Workflow,
 } from "lucide-react";
 
@@ -53,6 +55,54 @@ export default function HomePage() {
       detail: "Business KPI reporting",
       icon: ChartNoAxesCombined,
       status: "Ready",
+    },
+  ] as const;
+  const engagementModels = [
+    {
+      title: "Staff Augmentation",
+      description: "Embed senior engineers and consultants into your team with fast onboarding and clear accountability.",
+      bestFor: "Scaling delivery capacity quickly",
+      icon: UsersRound,
+    },
+    {
+      title: "Project Delivery",
+      description: "Cross-functional squad owns roadmap execution from discovery to production-ready release.",
+      bestFor: "Time-bound initiatives with fixed outcomes",
+      icon: Workflow,
+    },
+    {
+      title: "Managed Services",
+      description: "Ongoing platform operations, reliability improvements, and incident response under defined SLAs.",
+      bestFor: "Business-critical systems needing stability",
+      icon: Layers3,
+    },
+    {
+      title: "Strategic Advisory",
+      description: "Technology roadmap, architecture reviews, and modernization planning led by senior consultants.",
+      bestFor: "Executive planning and transformation programs",
+      icon: ChartNoAxesCombined,
+    },
+  ] as const;
+  const securityPillars = [
+    {
+      title: "Secure Delivery Lifecycle",
+      description: "Threat modeling, secure coding standards, and pipeline checks from sprint one.",
+      icon: ShieldCheck,
+    },
+    {
+      title: "Compliance-Ready Controls",
+      description: "Governance patterns aligned to SOC2, GDPR, and regulated data environments.",
+      icon: Blocks,
+    },
+    {
+      title: "Reliability & Continuity",
+      description: "Resilience engineering with backup, recovery, and incident playbooks built into operations.",
+      icon: Activity,
+    },
+    {
+      title: "Audit-Friendly Reporting",
+      description: "Operational KPIs, change logs, and evidence capture that simplify stakeholder reporting.",
+      icon: ChartNoAxesCombined,
     },
   ] as const;
 
@@ -235,6 +285,89 @@ export default function HomePage() {
                 </div>
               </AnimateInView>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="engagement-models" className="section-padding">
+        <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-10">
+          <AnimateInView>
+            <SectionHeading
+              eyebrow="Engagement Models"
+              icon={BriefcaseBusiness}
+              title="Flexible collaboration models based on your delivery context"
+              description="Choose the operating model that best fits your team maturity, timelines, and business objectives."
+            />
+          </AnimateInView>
+          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {engagementModels.map((model, index) => (
+              <AnimateInView key={model.title} delay={index * 0.06}>
+                <div className="group surface relative h-full overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:bg-card">
+                  <div className="pointer-events-none absolute inset-0 -z-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <div className="absolute -top-14 right-0 h-40 w-40 rounded-full bg-gradient-to-br from-primary/20 to-success/10 blur-3xl" />
+                  </div>
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-background/70 text-primary">
+                    <model.icon className="h-4 w-4" />
+                  </span>
+                  <h3 className="mt-5 text-xl font-semibold text-foreground">{model.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{model.description}</p>
+                  <div className="mt-5 border-t border-border/70 pt-4">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-primary/90">
+                      Best For
+                    </p>
+                    <p className="mt-1 text-sm text-muted-foreground">{model.bestFor}</p>
+                  </div>
+                </div>
+              </AnimateInView>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="security-compliance" className="section-padding">
+        <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-10">
+          <AnimateInView>
+            <SectionHeading
+              eyebrow="Security & Compliance"
+              icon={ShieldCheck}
+              title="Enterprise-grade governance built into delivery and operations"
+              description="Security, compliance, and reliability controls are integrated into every engagement, not added as an afterthought."
+            />
+          </AnimateInView>
+          <div className="mt-8 grid gap-6 lg:grid-cols-[1.25fr_0.75fr]">
+            <div className="grid gap-4 sm:grid-cols-2">
+              {securityPillars.map((pillar, index) => (
+                <AnimateInView key={pillar.title} delay={index * 0.05}>
+                  <div className="surface h-full rounded-2xl p-5">
+                    <p className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-background/70 text-primary">
+                      <pillar.icon className="h-4 w-4" />
+                    </p>
+                    <h3 className="mt-4 text-base font-semibold text-foreground">{pillar.title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">{pillar.description}</p>
+                  </div>
+                </AnimateInView>
+              ))}
+            </div>
+            <AnimateInView delay={0.08}>
+              <div className="surface h-full rounded-2xl p-6">
+                <p className="text-sm font-semibold text-foreground">Governance Outcomes</p>
+                <div className="mt-4 space-y-3 text-sm text-muted-foreground">
+                  <p className="rounded-lg border border-border/70 bg-background/60 px-3 py-2">
+                    Clear control ownership across engineering, operations, and leadership.
+                  </p>
+                  <p className="rounded-lg border border-border/70 bg-background/60 px-3 py-2">
+                    Consistent audit evidence and reporting aligned to stakeholder expectations.
+                  </p>
+                  <p className="rounded-lg border border-border/70 bg-background/60 px-3 py-2">
+                    Reduced delivery risk with measurable reliability and response standards.
+                  </p>
+                </div>
+                <Link href="/contact" className="mt-6 inline-flex items-center text-sm font-semibold text-primary hover:underline">
+                  Discuss your security requirements
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </AnimateInView>
           </div>
         </div>
       </section>
