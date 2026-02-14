@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import {
   Activity,
   ArrowRight,
@@ -12,7 +13,6 @@ import {
 } from "lucide-react";
 
 import { ServiceCard } from "@/components/cards/service-card";
-import { CtaBanner } from "@/components/sections/cta-banner";
 import { AnimateInView } from "@/components/sections/animate-in-view";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { Badge } from "@/components/ui/badge";
@@ -116,14 +116,31 @@ export default function HomePage() {
     areaServed: "Global",
     serviceType: services.map((service) => service.title),
   };
+  const homeBrandVars = {
+    "--primary": "#f2b544",
+    "--primary-foreground": "#121212",
+    "--success": "#c89b3c",
+    "--success-foreground": "#121212",
+    "--foreground": "#ffffff",
+    "--background": "#121212",
+    "--card": "#171717",
+    "--card-foreground": "#ffffff",
+    "--muted-foreground": "#a6a6a6",
+    "--border": "#3b3426",
+    "--accent": "#201a12",
+    "--accent-foreground": "#ffffff",
+  } as CSSProperties;
 
   return (
-    <>
+    <div
+      style={homeBrandVars}
+      className="text-white [&>section]:bg-[#121212] [&>section+section]:border-t [&>section+section]:border-[#4a402d]/90"
+    >
       <section className="section-padding relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_10%_10%,color-mix(in_oklab,var(--primary),transparent_80%),transparent_40%),radial-gradient(circle_at_85%_0%,color-mix(in_oklab,var(--success),transparent_84%),transparent_30%)]" />
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_10%_10%,rgba(242,181,68,0.18),transparent_40%),radial-gradient(circle_at_85%_0%,rgba(200,155,60,0.14),transparent_30%)]" />
         <div className="mx-auto grid w-full max-w-none gap-10 px-4 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:px-10">
           <AnimateInView>
-            <Badge>End-to-End IT Consultancy</Badge>
+            <Badge className="border-[#3b3426]/80 bg-[#1a1712] text-[#e5c37a]">End-to-End IT Consultancy</Badge>
             <h1 className="mt-5 max-w-4xl text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
               Engineering resilient digital products and operations for ambitious teams.
             </h1>
@@ -144,26 +161,26 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="mt-4 flex flex-wrap items-center gap-4 text-sm">
-              <Link href="#services" className="text-muted-foreground hover:text-foreground">
+              <Link href="#services" className="text-muted-foreground hover:text-[#f2b544]">
                 Services
               </Link>
-              <Link href="#why-us" className="text-muted-foreground hover:text-foreground">
+              <Link href="#why-us" className="text-muted-foreground hover:text-[#f2b544]">
                 Why Us
               </Link>
             </div>
           </AnimateInView>
 
           <AnimateInView delay={0.12}>
-            <div className="rounded-2xl border border-white/10 bg-zinc-950/95 p-6 sm:p-7">
+            <div className="rounded-2xl border border-[#3b3426]/80 bg-[#171717]/95 p-6 sm:p-7">
               <div className="flex items-center justify-between">
                 <p className="text-sm font-semibold text-white">Delivery Snapshot</p>
-                <span className="inline-flex items-center gap-1 rounded-full bg-success/20 px-2.5 py-1 text-[11px] font-medium text-success-foreground">
-                  <Activity className="h-3 w-3" />
+                <span className="inline-flex items-center gap-1 rounded-full bg-[#2a2214] px-2.5 py-1 text-[11px] font-medium text-[#e5c37a]">
+                  <Activity className="h-3 w-3 text-[#f2b544]" />
                   Live Program
                 </span>
               </div>
 
-              <div className="mt-5 rounded-xl border border-white/10 bg-zinc-900 p-4">
+              <div className="mt-5 rounded-xl border border-[#3b3426]/70 bg-[#1b1b1b] p-4">
                 <p className="text-xs font-semibold tracking-wide text-zinc-400 uppercase">
                   Transformation Flow
                 </p>
@@ -172,13 +189,13 @@ export default function HomePage() {
                   <div className="absolute bottom-5 left-[0.85rem] top-5 w-px bg-gradient-to-b from-primary/80 via-success/80 to-primary/30" />
                   {deliveryFlow.map((step) => (
                     <div key={step.name} className="relative flex items-start gap-3">
-                      <span className="relative z-10 inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/10 bg-zinc-950 text-primary">
+                      <span className="relative z-10 inline-flex h-7 w-7 items-center justify-center rounded-full border border-[#3b3426]/80 bg-[#131313] text-primary">
                         <step.icon className="h-3.5 w-3.5" />
                       </span>
                       <div className="min-w-0 flex-1">
                         <div className="flex items-start justify-between gap-2">
                           <p className="text-sm font-medium text-zinc-100">{step.name}</p>
-                          <span className="rounded-full border border-white/10 bg-zinc-950 px-2 py-0.5 text-[10px] text-zinc-300">
+                          <span className="rounded-full border border-[#3b3426]/80 bg-[#131313] px-2 py-0.5 text-[10px] text-zinc-300">
                             {step.status}
                           </span>
                         </div>
@@ -189,7 +206,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="mt-4 rounded-xl border border-white/10 bg-zinc-900 p-4">
+              <div className="mt-4 rounded-xl border border-[#3b3426]/70 bg-[#1b1b1b] p-4">
                 <p className="text-xs font-semibold tracking-wide text-zinc-400 uppercase">
                   Operational Health
                 </p>
@@ -260,7 +277,7 @@ export default function HomePage() {
           <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {whyCybexSoft.map((item, index) => (
               <AnimateInView key={item.title} delay={index * 0.07}>
-                <div className="group surface relative h-full overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:bg-card hover:shadow-[0_24px_60px_-32px_rgba(74,126,255,0.5)]">
+                <div className="group surface relative h-full overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:bg-card hover:shadow-[0_24px_60px_-32px_rgba(242,181,68,0.35)]">
                   <div className="pointer-events-none absolute inset-0 -z-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <div className="absolute -top-16 right-0 h-44 w-44 rounded-full bg-gradient-to-br from-primary/25 to-success/10 blur-3xl" />
                   </div>
@@ -338,8 +355,11 @@ export default function HomePage() {
             <div className="grid gap-4 sm:grid-cols-2">
               {securityPillars.map((pillar, index) => (
                 <AnimateInView key={pillar.title} delay={index * 0.05}>
-                  <div className="surface h-full rounded-2xl p-5">
-                    <p className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-background/70 text-primary">
+                  <div className="group surface relative h-full overflow-hidden rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:bg-card hover:shadow-[0_22px_50px_-34px_rgba(242,181,68,0.45)]">
+                    <div className="pointer-events-none absolute inset-0 -z-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                      <div className="absolute -top-12 right-0 h-36 w-36 rounded-full bg-gradient-to-br from-primary/20 to-success/10 blur-3xl" />
+                    </div>
+                    <p className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-background/70 text-primary transition-transform duration-300 group-hover:scale-105">
                       <pillar.icon className="h-4 w-4" />
                     </p>
                     <h3 className="mt-4 text-base font-semibold text-foreground">{pillar.title}</h3>
@@ -349,7 +369,7 @@ export default function HomePage() {
               ))}
             </div>
             <AnimateInView delay={0.08}>
-              <div className="surface h-full rounded-2xl p-6">
+              <div className="group surface h-full rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:bg-card hover:shadow-[0_24px_56px_-34px_rgba(242,181,68,0.45)]">
                 <p className="text-sm font-semibold text-foreground">Governance Outcomes</p>
                 <div className="mt-4 space-y-3 text-sm text-muted-foreground">
                   <p className="rounded-lg border border-border/70 bg-background/60 px-3 py-2">
@@ -362,7 +382,7 @@ export default function HomePage() {
                     Reduced delivery risk with measurable reliability and response standards.
                   </p>
                 </div>
-                <Link href="/contact" className="mt-6 inline-flex items-center text-sm font-semibold text-primary hover:underline">
+                <Link href="/contact" className="mt-6 inline-flex items-center text-sm font-semibold text-primary transition-colors hover:text-[#f2b544] hover:underline">
                   Discuss your security requirements
                   <ArrowRight className="h-4 w-4" />
                 </Link>
@@ -372,12 +392,48 @@ export default function HomePage() {
         </div>
       </section>
 
-      <CtaBanner />
+      <section className="section-padding">
+        <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-10">
+          <div className="relative overflow-hidden rounded-[2rem] border border-[#3b3426]/80 bg-[#161616] p-8 shadow-[0_30px_80px_-45px_rgba(242,181,68,0.55)] sm:p-10">
+            <div className="pointer-events-none absolute inset-0 -z-10">
+              <div className="absolute -left-24 -top-28 h-72 w-72 rounded-full bg-[#f2b544]/15 blur-3xl" />
+              <div className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-[#c89b3c]/14 blur-3xl" />
+            </div>
+            <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#d9b76c]">Let&apos;s Build</p>
+                <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                  Modern IT consulting with precision delivery and measurable outcomes.
+                </h2>
+                <p className="mt-4 max-w-2xl text-sm text-[#a6a6a6] sm:text-base">
+                  From architecture to operations, CybexSoft helps enterprises reduce risk, improve system
+                  reliability, and accelerate transformation programs.
+                </p>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#f2b544] to-[#c89b3c] px-5 py-3 text-sm font-semibold text-[#121212] transition-opacity hover:opacity-90"
+                >
+                  Start Your Project
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  href="/services"
+                  className="inline-flex items-center justify-center rounded-xl border border-[#c89b3c]/70 bg-transparent px-5 py-3 text-sm font-semibold text-[#e5c37a] transition-colors hover:bg-[#201a12]"
+                >
+                  Explore Services
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-    </>
+    </div>
   );
 }

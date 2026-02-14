@@ -38,13 +38,18 @@ export function MobileNav() {
 
   return (
     <div className="md:hidden">
-      <Button variant="outline" size="icon" className="rounded-full" onClick={() => setOpen((prev) => !prev)}>
+      <Button
+        variant="outline"
+        size="icon"
+        className="rounded-full border-[#3b3426] bg-[#171717] text-[#f2b544] hover:bg-[#201a12] hover:text-[#f2b544]"
+        onClick={() => setOpen((prev) => !prev)}
+      >
         {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
       </Button>
       {open ? (
-        <div className="absolute inset-x-4 top-20 z-50 rounded-2xl border border-border/70 bg-popover/95 p-4 shadow-xl backdrop-blur">
-          <div className="mb-3 rounded-xl border border-border/70 bg-background/70 p-2">
-            <p className="px-2 pb-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Services</p>
+        <div className="absolute inset-x-4 top-20 z-50 rounded-2xl border border-[#3b3426]/80 bg-[#171717]/95 p-4 shadow-[0_20px_50px_-30px_rgba(242,181,68,0.6)] backdrop-blur">
+          <div className="mb-3 rounded-xl border border-[#3b3426]/80 bg-[#121212]/70 p-2">
+            <p className="px-2 pb-1 text-xs font-semibold uppercase tracking-wide text-[#a6a6a6]">Services</p>
             <div className="grid gap-1">
               <Link
                 href="/services"
@@ -52,8 +57,8 @@ export function MobileNav() {
                 className={cn(
                   "rounded-lg px-3 py-2 text-sm font-semibold transition-colors",
                   pathname === "/services"
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-primary/90 text-primary-foreground hover:bg-primary",
+                    ? "bg-gradient-to-r from-[#f2b544] to-[#c89b3c] text-[#121212]"
+                    : "bg-gradient-to-r from-[#f2b544] to-[#c89b3c] text-[#121212] hover:opacity-90",
                 )}
               >
                 All Services
@@ -64,8 +69,10 @@ export function MobileNav() {
                   href={service.href}
                   onClick={() => setOpen(false)}
                   className={cn(
-                    "rounded-lg px-3 py-2 text-sm transition-colors hover:bg-accent",
-                    pathname === service.href && "bg-accent",
+                    "rounded-lg px-3 py-2 text-sm transition-colors",
+                    pathname === service.href
+                      ? "bg-[#201a12] text-[#f2b544]"
+                      : "text-[#b4b4b4] hover:bg-[#201a12] hover:text-[#f2b544]",
                   )}
                 >
                   {service.label}
@@ -80,8 +87,10 @@ export function MobileNav() {
                 href={link.href}
                 onClick={() => setOpen(false)}
                 className={cn(
-                  "rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-accent",
-                  pathname === link.href && "bg-accent",
+                  "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+                  pathname === link.href
+                    ? "bg-[#201a12] text-[#f2b544]"
+                    : "text-[#b4b4b4] hover:bg-[#201a12] hover:text-[#f2b544]",
                 )}
               >
                 {link.label}
