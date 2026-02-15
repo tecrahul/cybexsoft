@@ -153,7 +153,7 @@ export default function AboutPage() {
               eyebrow="Journey"
               icon={Building2}
               title="CybexSoft in milestones"
-              description="A horizontal timeline of our growth from launch to global delivery."
+              description="From our launch in Lucknow to global delivery partnerships, each milestone reflects deliberate capability building and consistent execution."
             />
           </AnimateInView>
           <div className="mt-8 overflow-x-auto pb-2">
@@ -163,8 +163,19 @@ export default function AboutPage() {
                 {timeline.map((item, index) => (
                   <AnimateInView key={item.date} delay={index * 0.05}>
                     <div className="group relative pt-8">
-                      <span className="absolute left-6 top-0 flex h-6 w-6 items-center justify-center rounded-full border border-primary/40 bg-card">
-                        <span className="h-2.5 w-2.5 rounded-full bg-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-[#ffd27a]" />
+                      <span
+                        className={`absolute left-6 top-0 flex h-6 w-6 items-center justify-center rounded-full border bg-card ${
+                          item.date === "Now" ? "border-primary animate-pulse" : "border-primary/40"
+                        }`}
+                      >
+                        {item.date === "Now" ? (
+                          <span className="relative flex h-2.5 w-2.5">
+                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/80" />
+                            <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-[#ffd27a]" />
+                          </span>
+                        ) : (
+                          <span className="h-2.5 w-2.5 rounded-full bg-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-[#ffd27a]" />
+                        )}
                       </span>
                       <div className="surface h-full rounded-xl p-5 transition-all duration-300 group-hover:-translate-y-1 group-hover:border-primary/50 group-hover:bg-card group-hover:shadow-[0_20px_44px_-24px_rgba(242,181,68,0.35)]">
                         <p className="text-xs font-semibold tracking-wide text-primary">{item.date}</p>

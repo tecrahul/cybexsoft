@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="LogicMonitor">
+  <rect width="128" height="128" rx="24" fill="#0f172a"/>
+  <rect x="16" y="16" width="96" height="96" rx="18" fill="#111827" stroke="#22d3ee" stroke-width="4"/>
+  <path d="M36 88V40h10v39h22v9H36Zm35 0V40h10v16l11-9h14L90 60l18 28H95L83 68l-2 1.5V88H71Z" fill="#22d3ee"/>
+</svg>

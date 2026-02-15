@@ -491,10 +491,25 @@ export default async function ServiceDetailPage({
           <div className="mt-8 grid gap-4 lg:grid-cols-4">
             {detail.diagram.map((step, index) => (
               <AnimateInView key={step.phase} delay={index * 0.05}>
-                <div className="surface relative h-full rounded-2xl p-5">
-                  <p className="text-xs font-semibold tracking-wider text-primary">PHASE {step.phase}</p>
-                  <h3 className="mt-2 text-lg font-semibold text-foreground">{step.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{step.description}</p>
+                <div className="group relative h-full overflow-hidden rounded-2xl border border-border/70 bg-card/80 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:bg-card hover:shadow-[0_20px_44px_-24px_rgba(242,181,68,0.35)]">
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_100%_0%,rgba(242,181,68,0.1),transparent_45%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-primary via-success to-primary/30" />
+                  <div className="relative z-10 flex h-full flex-col">
+                    <div className="flex items-start justify-between gap-2">
+                      <p className="inline-flex rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 text-[10px] font-semibold tracking-wide text-primary">
+                        PHASE {step.phase}
+                      </p>
+                      <span className="rounded-full border border-border/70 bg-background/70 px-2 py-1 text-[10px] text-muted-foreground">
+                        {index < detail.diagram.length - 1 ? "In Sequence" : "Outcome Ready"}
+                      </span>
+                    </div>
+                    <h3 className="mt-3 text-lg font-semibold text-foreground">{step.title}</h3>
+                    <p className="mt-2 text-sm text-muted-foreground">{step.description}</p>
+                    <p className="mt-4 inline-flex items-center text-xs font-medium text-primary/90">
+                      Stage {index + 1} of {detail.diagram.length}
+                      <ArrowRight className="ml-1 h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+                    </p>
+                  </div>
                 </div>
               </AnimateInView>
             ))}

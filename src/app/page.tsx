@@ -150,7 +150,7 @@ export default function HomePage() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link href="/contact">
-                <Button className="rounded-full px-6">
+                <Button className="rounded-full px-6 text-primary-foreground">
                   Start Your Project
                   <ArrowRight className="h-4 w-4" />
                 </Button>
@@ -159,14 +159,6 @@ export default function HomePage() {
                 <Button variant="outline" className="rounded-full px-6">
                   Explore Services
                 </Button>
-              </Link>
-            </div>
-            <div className="mt-4 flex flex-wrap items-center gap-4 text-sm">
-              <Link href="#services" className="text-muted-foreground hover:text-[#f2b544]">
-                Services
-              </Link>
-              <Link href="#why-us" className="text-muted-foreground hover:text-[#f2b544]">
-                Why Us
               </Link>
             </div>
           </AnimateInView>
