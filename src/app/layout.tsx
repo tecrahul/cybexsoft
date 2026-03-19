@@ -6,6 +6,7 @@ import Script from "next/script";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { ThemeProvider } from "@/components/theme-provider";
+import { WelcomePopup } from "@/components/WelcomePopup";
 import { createMetadata, siteConfig } from "@/lib/seo";
 
 import "./globals.css";
@@ -57,6 +58,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
             <main className="flex-1">{children}</main>
             <SiteFooter />
           </div>
+          <WelcomePopup />
         </ThemeProvider>
         <Script
           id="organization-jsonld"

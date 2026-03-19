@@ -102,19 +102,19 @@ export function SiteFooter() {
             <div className="mt-4 space-y-3 text-sm text-[#a9a9a9]">
               <p className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-[#d8a94a]" />
-                hello@cybexsoft.com
+                cybexsoftofficial@gmail.com
               </p>
               <p className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-[#d8a94a]" />
-                +1 (555) 204-8810
+                +91-76688-27583
               </p>
               <p className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-[#d8a94a]" />
-                San Francisco, CA
+                Lucknow, India
               </p>
               <p className="flex items-center gap-2">
                 <Building2 className="h-4 w-4 text-[#d8a94a]" />
-                Mon-Fri, 9:00 AM-6:00 PM PT
+                2A/134, Vrindavan Yojna, Raebareli Road, Lucknow
               </p>
             </div>
             <div className="mt-5 flex items-center gap-2">

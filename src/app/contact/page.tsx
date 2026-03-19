@@ -1,4 +1,4 @@
-import { Clock3, Headset, Mail, MapPin, Phone } from "lucide-react";
+import { Building2, Clock3, Headset, Mail, MapPin, Phone } from "lucide-react";
 
 import { PageHero } from "@/components/layout/page-hero";
 import { ContactForm } from "@/components/sections/contact-form";
@@ -39,30 +39,37 @@ export default function ContactPage() {
 
               <div className="mt-7 space-y-3">
                 <a
-                  href="mailto:hello@cybexsoft.com"
+                  href="mailto:cybexsoftofficial@gmail.com"
                   className="flex items-start gap-3 rounded-xl border border-border/70 bg-background/60 p-4 transition-colors hover:border-primary/40"
                 >
                   <Mail className="mt-0.5 h-4 w-4 text-primary" />
                   <span>
                     <span className="block text-sm font-semibold">Email</span>
-                    <span className="text-sm text-muted-foreground">hello@cybexsoft.com</span>
+                    <span className="text-sm text-muted-foreground">cybexsoftofficial@gmail.com</span>
                   </span>
                 </a>
                 <a
-                  href="tel:+15552048810"
+                  href="tel:+917668827583"
                   className="flex items-start gap-3 rounded-xl border border-border/70 bg-background/60 p-4 transition-colors hover:border-primary/40"
                 >
                   <Phone className="mt-0.5 h-4 w-4 text-primary" />
                   <span>
                     <span className="block text-sm font-semibold">Phone</span>
-                    <span className="text-sm text-muted-foreground">+1 (555) 204-8810</span>
+                    <span className="text-sm text-muted-foreground">+91-76688-27583</span>
                   </span>
                 </a>
                 <div className="flex items-start gap-3 rounded-xl border border-border/70 bg-background/60 p-4">
                   <MapPin className="mt-0.5 h-4 w-4 text-primary" />
                   <span>
+                    <span className="block text-sm font-semibold">Location</span>
+                    <span className="text-sm text-muted-foreground">Lucknow, India</span>
+                  </span>
+                </div>
+                <div className="flex items-start gap-3 rounded-xl border border-border/70 bg-background/60 p-4">
+                  <Building2 className="mt-0.5 h-4 w-4 text-primary" />
+                  <span>
                     <span className="block text-sm font-semibold">Office</span>
-                    <span className="text-sm text-muted-foreground">548 Market Street, San Francisco, CA</span>
+                    <span className="text-sm text-muted-foreground">2A/134, Vrindavan Yojna, Raebareli Road, Lucknow</span>
                   </span>
                 </div>
               </div>
